@@ -258,6 +258,122 @@ p {
   padding: 20px;
 }
 
+.research-lead {
+  font-size: 17px;
+  line-height: 1.9;
+  border-left: 4px solid #2563eb;
+}
+
+.research-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.research-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #dbe4f0;
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+
+.research-feature-reverse .research-copy {
+  order: 2;
+}
+
+.research-feature-reverse .research-figure {
+  order: 1;
+}
+
+.research-copy h3 {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  color: #1e3a8a;
+  font-size: 24px;
+}
+
+.research-copy p {
+  line-height: 1.85;
+}
+
+.research-kicker {
+  margin: 0;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.research-tags span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.research-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 10px;
+  color: #ffffff;
+  background: #1d4ed8;
+  font-size: 14px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.research-link:hover {
+  color: #ffffff;
+  background: #1e40af;
+}
+
+.research-figure {
+  margin: 0;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.research-figure figcaption {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.research-extension-grid {
+  margin-top: 4px;
+}
+
 .honor-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -370,6 +486,15 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .research-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .research-feature-reverse .research-copy,
+  .research-feature-reverse .research-figure {
+    order: initial;
+  }
+
   .home-left h1 {
     font-size: 42px;
   }
@@ -383,6 +508,20 @@ p {
   .home-hero {
     padding: 26px;
     border-radius: 22px;
+  }
+
+  .research-feature {
+    padding: 18px;
+    gap: 18px;
+    border-radius: 18px;
+  }
+
+  .research-copy h3 {
+    font-size: 21px;
+  }
+
+  .research-figure {
+    padding: 8px;
   }
 
   .stats-grid,

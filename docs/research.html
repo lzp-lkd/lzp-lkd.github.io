@@ -190,39 +190,96 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="研究方向" class="level1">
 <h1>研究方向</h1>
-<div class="content-card">
-<p>本人主要围绕人工智能、遥感图像处理、智能识别、语义分割、变化检测、边坡稳定性评价以及尾矿库安全监测与智能预警等方向开展研究。</p>
+<div class="content-card research-lead">
+<p>本人主要围绕高分辨率与多模态遥感影像智能理解开展研究，重点关注复杂场景中的跨模态信息融合、像素级语义分割、双时相变化检测、多属性语义建模，以及局部细节与全局上下文的协同表征。相关工作综合采用 CNN、Transformer、Mamba、跨注意力与多尺度特征融合等方法，形成了从场景感知、特征交互到精细预测的完整研究链路。</p>
 </div>
 <section id="主要研究方向" class="level2">
 <h2 class="anchored" data-anchor-id="主要研究方向">主要研究方向</h2>
-<div class="research-grid">
-<section id="遥感图像智能识别" class="level3 research-card">
-<h3 class="anchored" data-anchor-id="遥感图像智能识别">遥感图像智能识别</h3>
-<p>面向高分辨率遥感图像、多模态遥感图像和复杂地物场景，研究智能识别、场景理解和特征表达方法。</p>
+<div class="research-showcase">
+<article class="research-feature">
+<div class="research-copy">
+<p class="research-kicker">01 · 多模态遥感场景理解</p>
+<h3>Transformer-Mamba 多阶段融合</h3>
+<p>面向光学影像与 DSM、SAR 等异构遥感数据，研究多阶段跨模态特征交互与长距离依赖建模。FTransMamba 在双流编码过程中逐级交换互补信息，并在高层引入 Transformer、在解码端结合双向 Mamba 与自适应级联感受野，从而兼顾全局语义、局部结构和目标边界。</p>
+<div class="research-tags"><span>多模态融合</span><span>Transformer</span><span>Bi-Mamba</span><span>多尺度上下文</span></div>
+<p><a class="research-link" href="https://doi.org/10.1016/j.patcog.2026.113625" target="_blank" rel="noopener noreferrer">查看 FTransMamba 论文</a></p>
+</div>
+<figure class="research-figure">
+<img src="images/research/ftransmamba-architecture.png" alt="FTransMamba 多阶段 Transformer 与 Mamba 融合网络结构" loading="lazy">
+<figcaption>FTransMamba 总体框架：双流多阶段融合、Transformer 编码、Bi-Mamba 解码与自适应感受野协同工作。</figcaption>
+</figure>
+</article>
+
+<article class="research-feature research-feature-reverse">
+<div class="research-copy">
+<p class="research-kicker">02 · 多模态遥感语义分割</p>
+<h3>层次化双流融合与跨 Token 交互</h3>
+<p>针对浅层特征易受模态偏移影响、深层特征存在语义鸿沟的问题，HDC-Net 按网络层次分配不同融合任务：ISAF 在浅层完成通道选择与空间协同校准，HCFormer 在深层建立跨模态 Token 交互，PFB 将融合后的高层语义重新分配到多尺度解码路径。</p>
+<div class="research-tags"><span>双流编码</span><span>跨 Token 交互</span><span>层次化融合</span><span>精细分割</span></div>
+<p><a class="research-link" href="https://doi.org/10.1016/j.knosys.2026.115416" target="_blank" rel="noopener noreferrer">查看 HDC-Net 论文</a></p>
+</div>
+<figure class="research-figure">
+<img src="images/research/hdcnet-architecture.png" alt="HDC-Net 层次化双流融合与跨 Token 交互网络结构" loading="lazy">
+<figcaption>HDC-Net 总体框架：浅层 ISAF、深层 HCFormer 与金字塔融合桥共同完成多模态语义分割。</figcaption>
+</figure>
+</article>
+
+<article class="research-feature">
+<div class="research-copy">
+<p class="research-kicker">03 · 遥感图像变化检测</p>
+<h3>双时相邻域解耦与属性聚焦融合</h3>
+<p>面向双时相遥感影像中尺度差异、伪变化和细粒度目标难以识别的问题，MNDAF-Net 逐级提取并解耦不同邻域范围的变化属性，再通过属性聚焦融合解码器对双时相信息进行交互，汇聚多尺度差异特征并生成像素级变化图。</p>
+<div class="research-tags"><span>双时相影像</span><span>邻域解耦</span><span>跨注意力</span><span>变化图生成</span></div>
+<p><a class="research-link" href="https://doi.org/10.1109/TGRS.2025.3605637" target="_blank" rel="noopener noreferrer">查看 MNDAF-Net 论文</a></p>
+</div>
+<figure class="research-figure">
+<img src="images/research/mndafnet-architecture.png" alt="MNDAF-Net 双时相遥感变化检测网络结构" loading="lazy">
+<figcaption>MNDAF-Net 总体框架：双分支编码、多尺度差异建模与属性聚焦融合解码。</figcaption>
+</figure>
+</article>
+
+<article class="research-feature research-feature-reverse">
+<div class="research-copy">
+<p class="research-kicker">04 · 多属性场景语义理解</p>
+<h3>全局-局部属性差异建模</h3>
+<p>复杂遥感场景中，同类地物可能具有不同外观，不同类别也可能表现出相似纹理。CADANet 通过属性特征聚合模块同时建立全局与局部上下文关系，并利用属性感知空间聚合抑制背景噪声和属性混淆，提升多属性场景分析的一致性与边界表达能力。</p>
+<div class="research-tags"><span>属性差异</span><span>全局上下文</span><span>局部上下文</span><span>语义一致性</span></div>
+<p><a class="research-link" href="https://doi.org/10.1109/TGRS.2024.3516501" target="_blank" rel="noopener noreferrer">查看 CADANet 论文</a></p>
+</div>
+<figure class="research-figure">
+<img src="images/research/cadanet-architecture.png" alt="CADANet 全局与局部属性差异建模网络结构" loading="lazy">
+<figcaption>CADANet 总体框架：AFA 聚合全局与局部属性上下文，CAASA 进一步完成属性感知的空间增强。</figcaption>
+</figure>
+</article>
+
+<article class="research-feature">
+<div class="research-copy">
+<p class="research-kicker">05 · 遥感图像智能识别</p>
+<h3>局部感知与邻接空洞全局建模</h3>
+<p>针对遥感影像中目标尺度差异大、属性共现关系复杂的问题，Adjacent-Atrous 方法将局部特征感知与邻接空洞全局上下文建模结合，在控制计算开销的同时扩展有效感受野，并通过类别响应增强对多属性场景中关键区域与语义关系的识别。</p>
+<div class="research-tags"><span>局部感知</span><span>空洞卷积</span><span>全局上下文</span><span>多属性识别</span></div>
+<p><a class="research-link" href="https://doi.org/10.1109/TGRS.2024.3422007" target="_blank" rel="noopener noreferrer">查看 Adjacent-Atrous 论文</a></p>
+</div>
+<figure class="research-figure">
+<img src="images/research/adjacent-atrous-architecture.png" alt="Adjacent-Atrous 局部感知与全局上下文建模网络结构" loading="lazy">
+<figcaption>Adjacent-Atrous 总体框架：局部特征感知模块与邻接空洞全局上下文模块协同完成多属性场景理解。</figcaption>
+</figure>
+</article>
+</div>
 </section>
-<section id="遥感图像语义分割" class="level3 research-card">
-<h3 class="anchored" data-anchor-id="遥感图像语义分割">遥感图像语义分割</h3>
-<p>研究遥感图像像素级分类、语义分割、多尺度上下文建模、边界细节保持和全局语义理解方法。</p>
-</section>
-<section id="遥感图像变化检测" class="level3 research-card">
-<h3 class="anchored" data-anchor-id="遥感图像变化检测">遥感图像变化检测</h3>
-<p>面向双时相或多时相遥感图像，研究变化区域检测、属性差异建模、多尺度特征融合和场景变化理解方法。</p>
-</section>
-<section id="多模态遥感场景理解" class="level3 research-card">
-<h3 class="anchored" data-anchor-id="多模态遥感场景理解">多模态遥感场景理解</h3>
-<p>研究多源遥感数据、多模态图像融合、Transformer、Mamba、CNN 等深度学习模型在遥感场景理解中的应用。</p>
-</section>
+
+<section id="拓展研究方向" class="level2">
+<h2 class="anchored" data-anchor-id="拓展研究方向">拓展研究方向</h2>
+<div class="research-grid research-extension-grid">
 <section id="自然语言处理与文本生成" class="level3 research-card">
 <h3 class="anchored" data-anchor-id="自然语言处理与文本生成">自然语言处理与文本生成</h3>
-<p>研究新闻标题生成、文本分类、多轮对话系统、知识增强文本生成等自然语言处理任务。</p>
+<p>研究新闻标题生成、文本分类、多轮对话系统和知识增强文本生成等任务，关注语义表示、注意力融合与生成质量优化。</p>
 </section>
 <section id="尾矿库安全监测与智能预警" class="level3 research-card">
 <h3 class="anchored" data-anchor-id="尾矿库安全监测与智能预警">尾矿库安全监测与智能预警</h3>
-<p>结合深度学习、多源数据融合和工程安全监测，研究尾矿库安全监测、边坡稳定性评价与智能预警系统。</p>
+<p>结合深度学习、多源监测数据融合与工程安全评价，研究尾矿库状态感知、边坡稳定性分析和智能预警系统。</p>
 </section>
 </div>
-
-
 </section>
 </section>
 
